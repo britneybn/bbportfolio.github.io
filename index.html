@@ -4,150 +4,161 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Britney Brown | Remote Sales Portfolio</title>
-    <!-- Embedded Native CSS Stylesheet (Overrides external dependency blocks) -->
+    <!-- Embedded Full Layout Stylesheet -->
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; color: #0f172a; line-height: 1.6; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background-color: #f8fafc; color: #0f172a; line-height: 1.6; padding-bottom: 60px; }
         
-        /* Navigation */
-        nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); border-bottom: 1px solid #e2e8f0; padding: 16px; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; max-width: 100%; }
-        .logo { font-size: 14px; font-weight: 900; tracking: 0.1em; color: #0f172a; }
-        .badge { background-color: #d1fae5; color: #065f46; font-size: 12px; font-weight: 600; padding: 4px 12px; rounded-radius: 9999px; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px; }
-        .dot { w: 6px; height: 6px; background-color: #10b981; border-radius: 50px; display: inline-block; width: 6px; height: 6px; }
-
-        /* Hero Header */
-        header { background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #020617 100%); color: #ffffff; padding: 80px 24px; text-align: left; relative: overflow: hidden; position: relative; }
-        h1 { font-size: 3rem; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 8px; color: #fff; }
-        .subtitle { font-size: 1.25rem; color: #818cf8; font-weight: 600; margin-bottom: 12px; }
-        .meta-text { color: #94a3b8; font-size: 14px; display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
-        .btn-group { display: flex; gap: 16px; flex-wrap: wrap; }
-        .btn-primary { background-color: #4f46e5; color: #fff; text-decoration: none; font-weight: 600; font-size: 14px; padding: 12px 24px; border-radius: 12px; box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3); transition: background 0.2s; }
-        .btn-primary:hover { background-color: #4338ca; }
-        .btn-secondary { background-color: rgba(30, 41, 59, 0.6); border: 1px solid #334155; color: #e2e8f0; text-decoration: none; font-weight: 600; font-size: 14px; padding: 12px 24px; border-radius: 12px; transition: background 0.2s; }
-        .btn-secondary:hover { background-color: rgba(30, 41, 59, 0.9); }
-
-        /* Content Architecture */
-        main { max-width: 800px; margin: 0 auto; padding: 64px 24px; display: flex; flex-direction: column; gap: 48px; }
-        section { background: #ffffff; padding: 32px; border-radius: 20px; border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
-        .section-title { font-size: 12px; font-weight: 700; text-transform: uppercase; tracking-spacing: 0.1em; color: #4f46e5; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
-        .section-title::before { content: ""; width: 6px; height: 6px; background: #4f46e5; border-radius: 50%; display: inline-block; }
-        .snapshot-text { font-size: 1.1rem; color: #475569; font-weight: 300; }
-
-        /* Grid Frameworks */
-        .grid-two { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-        .grid-three { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+        /* Layout Framework wrapper */
+        .wrapper { max-width: 800px; margin: 0 auto; padding: 0 20px; }
         
-        .metric-card-indigo { background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%); border: 1px solid #c7d2fe; padding: 32px; border-radius: 20px; transition: transform 0.2s; }
-        .metric-card-emerald { background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border: 1px solid #a7f3d0; padding: 32px; border-radius: 20px; transition: transform 0.2s; }
-        .metric-card-indigo:hover, .metric-card-emerald:hover { transform: translateY(-4px); }
-        .metric-num { font-size: 3rem; font-weight: 900; tracking: -0.02em; line-height: 1; }
-        .metric-num-indigo { color: #1e1b4b; }
-        .metric-num-emerald { color: #064e3b; }
-        .metric-title { font-weight: 700; margin-top: 8px; font-size: 16px; }
-        .metric-title-indigo { color: #312e81; }
-        .metric-title-emerald { color: #065f46; }
-        .metric-desc { font-size: 14px; color: #475569; margin-top: 8px; }
+        /* Navigation Elements */
+        nav { background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 16px 0; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 14px; font-weight: 800; tracking-spacing: 0.1em; color: #0f172a; }
+        .badge { background-color: #d1fae5; color: #065f46; font-size: 12px; font-weight: 600; padding: 6px 16px; border-radius: 50px; display: inline-flex; align-items: center; }
+        .dot { width: 8px; height: 8px; background-color: #10b981; border-radius: 50%; display: inline-block; margin-right: 6px; }
 
-        .tool-card { background: #fff; padding: 24px; border-radius: 16px; border: 1px solid #e2e8f0; transition: transform 0.2s, box-shadow 0.2s; }
-        .tool-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); }
-        .tool-icon { font-size: 24px; margin-bottom: 8px; }
-        .tool-name { font-weight: 700; font-size: 15px; color: #1e293b; }
-        .tool-desc { font-size: 12px; color: #64748b; margin-top: 4px; }
+        /* Premium Dark Mesh Hero */
+        header { background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #020617 100%); color: #ffffff; padding: 60px 0; border-bottom: 4px solid #4f46e5; }
+        h1 { font-size: 2.5rem; font-weight: 900; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 6px; color: #ffffff; }
+        .subtitle { font-size: 1.2rem; color: #818cf8; font-weight: 600; margin-bottom: 12px; }
+        .meta-text { color: #94a3b8; font-size: 14px; margin-bottom: 24px; }
+        .meta-item { margin-right: 20px; display: inline-block; }
+        .btn-primary { background-color: #4f46e5; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 14px; padding: 12px 24px; border-radius: 10px; display: inline-block; margin-right: 12px; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3); }
+        .btn-secondary { background-color: rgba(30, 41, 59, 0.5); border: 1px solid #334155; color: #e2e8f0; text-decoration: none; font-weight: 600; font-size: 14px; padding: 12px 24px; border-radius: 10px; display: inline-block; }
 
-        /* Audit Block */
-        .audit-section { background: #0f172a; color: #fff; padding: 32px; border-radius: 20px; position: relative; }
-        .audit-title { color: #818cf8; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
-        .audit-p { color: #94a3b8; font-size: 14px; margin-bottom: 24px; }
-        .audit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
-        .audit-item { display: flex; gap: 12px; align-items: start; }
-        .audit-ok { background: rgba(16, 185, 129, 0.15); color: #34d399; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px; }
-        .audit-name { font-weight: 600; color: #f1f5f9; font-size: 14px; }
-        .audit-desc { font-size: 12px; color: #94a3b8; margin-top: 2px; }
+        /* Content Blocks */
+        .section-box { background: #ffffff; padding: 30px; border-radius: 16px; border: 1px solid #e2e8f0; margin-top: 30px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); }
+        .section-title { font-size: 12px; font-weight: 700; text-transform: uppercase; tracking-spacing: 0.1em; color: #4f46e5; margin-bottom: 16px; }
+        .snapshot-text { font-size: 1.05rem; color: #334155; font-weight: 400; }
 
-        /* Footer */
-        footer { border-top: 1px solid #e2e8f0; padding: 48px 24px; text-align: center; background: #fff; margin-top: 64px; }
-        footer p { font-size: 12px; font-weight: 600; text-transform: uppercase; tracking-spacing: 0.1em; color: #94a3b8; }
+        /* Table Columns System (Zero Grid Crashes) */
+        .layout-table { width: 100%; border-collapse: separate; border-spacing: 16px; margin-left: -16px; margin-right: -16px; }
+        .column-cell { width: 50%; vertical-align: top; background: #ffffff; border-radius: 16px; padding: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); }
+        
+        /* Metric Styling modules */
+        .card-indigo { background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%); border: 1px solid #c7d2fe; }
+        .card-emerald { background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 1px solid #bbf7d0; }
+        .metric-num { font-size: 2.8rem; font-weight: 800; line-height: 1; }
+        .text-indigo { color: #312e81; }
+        .text-emerald { color: #064e3b; }
+        .metric-title { font-weight: 700; margin-top: 8px; font-size: 15px; color: #1e293b; }
+        .metric-desc { font-size: 13px; color: #475569; margin-top: 6px; }
+
+        /* Multi Tool Matrix Grid */
+        .tools-table { width: 100%; border-collapse: separate; border-spacing: 12px; }
+        .tool-cell { width: 33.33%; background: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; vertical-align: top; }
+        .tool-icon { font-size: 22px; margin-bottom: 4px; }
+        .tool-name { font-weight: 700; font-size: 14px; color: #0f172a; }
+        .tool-desc { font-size: 12px; color: #64748b; margin-top: 4px; line-height: 1.4; }
+
+        /* Technical Asset Infrastructure Audit Block */
+        .audit-box { background: #0f172a; color: #ffffff; padding: 30px; border-radius: 16px; margin-top: 30px; }
+        .audit-title { color: #818cf8; font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 14px; }
+        .audit-item { margin-bottom: 14px; }
+        .audit-ok { background: rgba(16, 185, 129, 0.2); color: #34d399; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px; margin-right: 8px; display: inline-block; }
+        .audit-name { font-weight: 600; color: #f1f5f9; font-size: 14px; display: inline-block; }
+        .audit-desc { font-size: 12px; color: #94a3b8; margin-left: 36px; margin-top: 2px; }
+
+        /* Footer Alignment */
+        footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #e2e8f0; }
+        footer p { font-size: 11px; font-weight: 600; text-transform: uppercase; color: #94a3b8; tracking: 0.05em; }
     </style>
 </head>
 <body>
 
-    <!-- Premium Navigation Bar -->
+    <!-- Navigation Area -->
     <nav>
-        <span class="logo">B. BROWN</span>
-        <div class="badge">
-            <span class="dot"></span>
-            Available for Remote Work
+        <div class="wrapper nav-container">
+            <span class="logo">B. BROWN</span>
+            <div class="badge"><span class="dot"></span>Available for Remote Work</div>
         </div>
     </nav>
 
-    <!-- Ultra-Modern Hero / Header Section -->
+    <!-- Header Section -->
     <header>
-        <h1 class="h1">BRITNEY BROWN</h1>
-        <p class="subtitle">Remote Sales & Inbound Closing Specialist</p>
-        <div class="meta-text">
-            <span>📍 Kingston, Jamaica</span>
-            <span>✉️ britneybrown0114@gmail.com</span>
-        </div>
-        
-        <div class="btn-group">
-            <a href="mailto:britneybrown0114@gmail.com" class="btn-primary">Initiate Application Contact</a>
-            <a href="https://linkedin.com" target="_blank" class="btn-secondary">View LinkedIn Verification</a>
+        <div class="wrapper">
+            <h1>BRITNEY BROWN</h1>
+            <div class="subtitle">Remote Sales & Inbound Closing Specialist</div>
+            <div class="meta-text">
+                <span class="meta-item">📍 Kingston, Jamaica</span>
+                <span class="meta-item">✉️ britneybrown0114@gmail.com</span>
+            </div>
+            <div>
+                <a href="mailto:britneybrown0114@gmail.com" class="btn-primary">Initiate Application Contact</a>
+                <a href="https://linkedin.com" target="_blank" class="btn-secondary">View LinkedIn Verification</a>
+            </div>
         </div>
     </header>
 
-    <!-- Main Content Grid -->
-    <main>
-
-        <!-- Executive Snapshot Section -->
-        <section>
+    <!-- Main Section Structure -->
+    <div class="wrapper">
+        
+        <!-- Profile Snapshot Section -->
+        <div class="section-box">
             <div class="section-title">Profile Snapshot</div>
             <p class="snapshot-text">
                 High-performance, remote inbound sales closer with a proven track record handling intensive 20–30+ daily call volumes. Deeply experienced in high-pressure financial and subscription sales environments, specializing in emotional intelligence, financial consultation, and consultative objection handling.
             </p>
-        </section>
-
-        <!-- Dynamic Metrics Grid -->
-        <div class="grid-two">
-            <div class="metric-card-indigo">
-                <p class="metric-num metric-num-indigo">115%</p>
-                <p class="metric-title metric-title-indigo">Average Quota Attainment</p>
-                <p class="metric-desc">Consistently surpassed inbound sales conversion goals and milestones on flagship communications contracts.</p>
-            </div>
-            <div class="metric-card-emerald">
-                <p class="metric-num metric-num-emerald">95%+</p>
-                <p class="metric-title metric-title-emerald">Quality Assurance & Compliance</p>
-                <p class="metric-desc">Maintained pristine customer records, software platform logging accuracy, and strict corporate voice compliance.</p>
-            </div>
         </div>
 
-        <!-- Premium Technical Stack Layout -->
-        <div>
-            <div class="section-title" style="margin-bottom: 24px;">Enterprise Platform Toolset</div>
-            <div class="grid-three">
-                <div class="tool-card">
-                    <div class="tool-icon">☁️</div>
-                    <p class="tool-name">Salesforce CRM</p>
-                    <p class="tool-desc">Real-time dynamic promotional tracking & pipeline management logs.</p>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-icon">🎧</div>
-                    <p class="tool-name">Zendesk Suite</p>
-                    <p class="tool-desc">Multi-channel management across email infrastructure and live customer chat arrays.</p>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-icon">📊</div>
-                    <p class="tool-name">Microsoft Excel</p>
-                    <p class="tool-desc">Strategic pipeline sorting, data scrubbing, and target territory manipulation.</p>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-icon">📞</div>
-                    <p class="tool-name">Cloud Telephony</p>
-                    <p class="tool-desc">VoIP platform fluency, softphone interaction loops, and automated call routing.</p>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-icon">⚡</div>
-                    <p class="tool-name">Workspace Sync</p>
-                    <p class="tool-desc">Asynchronous communication Mastery across Slack platforms and global Zoom networks.</p>
-                </div>
-                <div class="tool-card">
+        <!-- Metrics Columns Matrix (Native Stable Table) -->
+        <div style="margin-top: 20px;">
+            <table class="layout-table">
+                <tr>
+                    <td class="column-cell card-indigo">
+                        <p class="metric-num text-indigo">115%</p>
+                        <p class="metric-title">Average Quota Attainment</p>
+                        <p class="metric-desc">Consistently surpassed inbound sales conversion goals and milestones on flagship communications contracts.</p>
+                    </td>
+                    <td class="column-cell card-emerald">
+                        <p class="metric-num text-emerald">95%+</p>
+                        <p class="metric-title">Quality Assurance & Compliance</p>
+                        <p class="metric-desc">Maintained pristine customer records, software platform logging accuracy, and strict corporate voice compliance.</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Tools Matrix Grid (Row 1) -->
+        <div class="section-box" style="padding: 24px 20px;">
+            <div class="section-title" style="margin-bottom: 14px; margin-left: 12px;">Enterprise Platform Toolset</div>
+            <table class="tools-table">
+                <tr>
+                    <td class="tool-cell">
+                        <div class="tool-icon">☁️</div>
+                        <p class="tool-name">Salesforce CRM</p>
+                        <p class="tool-desc">Real-time dynamic promotional tracking & pipeline management logs.</p>
+                    </td>
+                    <td class="tool-cell">
+                        <div class="tool-icon">🎧</div>
+                        <p class="tool-name">Zendesk Suite</p>
+                        <p class="tool-desc">Multi-channel management across email infrastructure and customer chat arrays.</p>
+                    </td>
+                    <td class="tool-cell">
+                        <div class="tool-icon">📊</div>
+                        <p class="tool-name">Microsoft Excel</p>
+                        <p class="tool-desc">Strategic pipeline sorting, data scrubbing, and target territory manipulation.</p>
+                    </td>
+                </tr>
+            </table>
+            
+            <!-- Tools Matrix Grid (Row 2) -->
+            <table class="tools-table" style="margin-top: 12px;">
+                <tr>
+                    <td class="tool-cell">
+                        <div class="tool-icon">📞</div>
+                        <p class="tool-name">Cloud Telephony</p>
+                        <p class="tool-desc">VoIP platform fluency, softphone interaction loops, and automated call routing.</p>
+                    </td>
+                    <td class="tool-cell">
+                        <div class="tool-icon">⚡</div>
+                        <p class="tool-name">Workspace Sync</p>
+                        <p class="tool-desc">Asynchronous communication mastery across Slack channels and global Zoom networks.</p>
+                    </td>
+                    <td class="tool-cell">
+                        <div class="tool-icon">🏠</div>
+                        <p class="tool-name">Arise Infrastructure</p>
+
 
