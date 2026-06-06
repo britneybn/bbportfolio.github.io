@@ -4,146 +4,150 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Britney Brown | Remote Sales Portfolio</title>
-    <!-- Tailwind CSS for modern utility-first styling -->
-    <script src="https://tailwindcss.com"></script>
-    <!-- Google Fonts Inter for a modern corporate look -->
-    <link href="https://googleapis.com" rel="stylesheet">
+    <!-- Embedded Native CSS Stylesheet (Overrides external dependency blocks) -->
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .glass-panel { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); }
-        .gradient-mesh { background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #020617 100%); }
-        .card-hover:hover { transform: translateY(-4px); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; color: #0f172a; line-height: 1.6; }
+        
+        /* Navigation */
+        nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); border-bottom: 1px solid #e2e8f0; padding: 16px; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; max-width: 100%; }
+        .logo { font-size: 14px; font-weight: 900; tracking: 0.1em; color: #0f172a; }
+        .badge { background-color: #d1fae5; color: #065f46; font-size: 12px; font-weight: 600; padding: 4px 12px; rounded-radius: 9999px; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px; }
+        .dot { w: 6px; height: 6px; background-color: #10b981; border-radius: 50px; display: inline-block; width: 6px; height: 6px; }
+
+        /* Hero Header */
+        header { background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #020617 100%); color: #ffffff; padding: 80px 24px; text-align: left; relative: overflow: hidden; position: relative; }
+        h1 { font-size: 3rem; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 8px; color: #fff; }
+        .subtitle { font-size: 1.25rem; color: #818cf8; font-weight: 600; margin-bottom: 12px; }
+        .meta-text { color: #94a3b8; font-size: 14px; display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+        .btn-group { display: flex; gap: 16px; flex-wrap: wrap; }
+        .btn-primary { background-color: #4f46e5; color: #fff; text-decoration: none; font-weight: 600; font-size: 14px; padding: 12px 24px; border-radius: 12px; box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3); transition: background 0.2s; }
+        .btn-primary:hover { background-color: #4338ca; }
+        .btn-secondary { background-color: rgba(30, 41, 59, 0.6); border: 1px solid #334155; color: #e2e8f0; text-decoration: none; font-weight: 600; font-size: 14px; padding: 12px 24px; border-radius: 12px; transition: background 0.2s; }
+        .btn-secondary:hover { background-color: rgba(30, 41, 59, 0.9); }
+
+        /* Content Architecture */
+        main { max-width: 800px; margin: 0 auto; padding: 64px 24px; display: flex; flex-direction: column; gap: 48px; }
+        section { background: #ffffff; padding: 32px; border-radius: 20px; border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
+        .section-title { font-size: 12px; font-weight: 700; text-transform: uppercase; tracking-spacing: 0.1em; color: #4f46e5; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+        .section-title::before { content: ""; width: 6px; height: 6px; background: #4f46e5; border-radius: 50%; display: inline-block; }
+        .snapshot-text { font-size: 1.1rem; color: #475569; font-weight: 300; }
+
+        /* Grid Frameworks */
+        .grid-two { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        .grid-three { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+        
+        .metric-card-indigo { background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%); border: 1px solid #c7d2fe; padding: 32px; border-radius: 20px; transition: transform 0.2s; }
+        .metric-card-emerald { background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border: 1px solid #a7f3d0; padding: 32px; border-radius: 20px; transition: transform 0.2s; }
+        .metric-card-indigo:hover, .metric-card-emerald:hover { transform: translateY(-4px); }
+        .metric-num { font-size: 3rem; font-weight: 900; tracking: -0.02em; line-height: 1; }
+        .metric-num-indigo { color: #1e1b4b; }
+        .metric-num-emerald { color: #064e3b; }
+        .metric-title { font-weight: 700; margin-top: 8px; font-size: 16px; }
+        .metric-title-indigo { color: #312e81; }
+        .metric-title-emerald { color: #065f46; }
+        .metric-desc { font-size: 14px; color: #475569; margin-top: 8px; }
+
+        .tool-card { background: #fff; padding: 24px; border-radius: 16px; border: 1px solid #e2e8f0; transition: transform 0.2s, box-shadow 0.2s; }
+        .tool-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); }
+        .tool-icon { font-size: 24px; margin-bottom: 8px; }
+        .tool-name { font-weight: 700; font-size: 15px; color: #1e293b; }
+        .tool-desc { font-size: 12px; color: #64748b; margin-top: 4px; }
+
+        /* Audit Block */
+        .audit-section { background: #0f172a; color: #fff; padding: 32px; border-radius: 20px; position: relative; }
+        .audit-title { color: #818cf8; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+        .audit-p { color: #94a3b8; font-size: 14px; margin-bottom: 24px; }
+        .audit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+        .audit-item { display: flex; gap: 12px; align-items: start; }
+        .audit-ok { background: rgba(16, 185, 129, 0.15); color: #34d399; font-weight: 700; font-size: 11px; padding: 2px 6px; border-radius: 4px; }
+        .audit-name { font-weight: 600; color: #f1f5f9; font-size: 14px; }
+        .audit-desc { font-size: 12px; color: #94a3b8; margin-top: 2px; }
+
+        /* Footer */
+        footer { border-top: 1px solid #e2e8f0; padding: 48px 24px; text-align: center; background: #fff; margin-top: 64px; }
+        footer p { font-size: 12px; font-weight: 600; text-transform: uppercase; tracking-spacing: 0.1em; color: #94a3b8; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 antialiased selection:bg-indigo-500 selection:text-white">
+<body>
 
     <!-- Premium Navigation Bar -->
-    <nav class="sticky top-0 z-50 glass-panel border-b border-slate-200/80 transition-all">
-        <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
-            <span class="text-sm font-black tracking-widest text-slate-900">B. BROWN</span>
-            <div class="flex items-center gap-4">
-                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                    Available for Remote Work
-                </span>
-            </div>
+    <nav>
+        <span class="logo">B. BROWN</span>
+        <div class="badge">
+            <span class="dot"></span>
+            Available for Remote Work
         </div>
     </nav>
 
     <!-- Ultra-Modern Hero / Header Section -->
-    <header class="gradient-mesh text-white py-24 px-6 relative overflow-hidden">
-        <!-- Visual Accent Orbs -->
-        <div class="absolute top-0 right-0 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
-        <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl -ml-20 -mb-20"></div>
-
-        <div class="max-w-4xl mx-auto relative z-10">
-            <h1 class="text-4xl md:text-6xl font-black tracking-tight mb-4 bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
-                BRITNEY BROWN
-            </h1>
-            <p class="text-xl md:text-2xl font-semibold text-indigo-400 max-w-2xl">
-                Remote Sales & Inbound Closing Specialist
-            </p>
-            <div class="flex flex-wrap gap-y-2 gap-x-4 items-center text-slate-400 text-sm mt-4">
-                <span class="flex items-center gap-1">📍 Kingston, Jamaica</span>
-                <span class="hidden md:inline">•</span>
-                <span class="flex items-center gap-1">✉️ britneybrown0114@gmail.com</span>
-            </div>
-            
-            <div class="mt-8 flex flex-wrap gap-4">
-                <a href="mailto:britneybrown0114@gmail.com" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm px-6 py-3 rounded-xl shadow-lg shadow-indigo-600/20 active:scale-95 transition-all">
-                    Initiate Application Contact
-                </a>
-                <a href="https://linkedin.com" target="_blank" class="bg-slate-800/60 hover:bg-slate-800 text-slate-200 font-semibold text-sm px-6 py-3 rounded-xl border border-slate-700/50 backdrop-blur active:scale-95 transition-all">
-                    View LinkedIn Verification
-                </a>
-            </div>
+    <header>
+        <h1 class="h1">BRITNEY BROWN</h1>
+        <p class="subtitle">Remote Sales & Inbound Closing Specialist</p>
+        <div class="meta-text">
+            <span>📍 Kingston, Jamaica</span>
+            <span>✉️ britneybrown0114@gmail.com</span>
+        </div>
+        
+        <div class="btn-group">
+            <a href="mailto:britneybrown0114@gmail.com" class="btn-primary">Initiate Application Contact</a>
+            <a href="https://linkedin.com" target="_blank" class="btn-secondary">View LinkedIn Verification</a>
         </div>
     </header>
 
     <!-- Main Content Grid -->
-    <main class="max-w-4xl mx-auto px-6 py-16 space-y-16">
+    <main>
 
         <!-- Executive Snapshot Section -->
-        <section class="bg-white p-8 rounded-2xl border border-slate-200/60 shadow-sm">
-            <h2 class="text-xs font-bold uppercase tracking-widest text-indigo-600 mb-4 flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-indigo-600"></span> Profile Snapshot
-            </h2>
-            <p class="text-slate-600 leading-relaxed text-base md:text-lg font-light">
+        <section>
+            <div class="section-title">Profile Snapshot</div>
+            <p class="snapshot-text">
                 High-performance, remote inbound sales closer with a proven track record handling intensive 20–30+ daily call volumes. Deeply experienced in high-pressure financial and subscription sales environments, specializing in emotional intelligence, financial consultation, and consultative objection handling.
             </p>
         </section>
 
         <!-- Dynamic Metrics Grid -->
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-gradient-to-br from-indigo-50 to-indigo-100/50 border border-indigo-100 p-8 rounded-2xl card-hover shadow-sm group">
-                <p class="text-5xl font-black text-indigo-950 tracking-tight">115%</p>
-                <p class="text-base font-bold text-indigo-900 mt-2">Average Quota Attainment</p>
-                <p class="text-sm text-indigo-700/80 mt-2 leading-relaxed">
-                    Consistently surpassed inbound sales conversion goals and milestones on flagship communications contracts.
-                </p>
+        <div class="grid-two">
+            <div class="metric-card-indigo">
+                <p class="metric-num metric-num-indigo">115%</p>
+                <p class="metric-title metric-title-indigo">Average Quota Attainment</p>
+                <p class="metric-desc">Consistently surpassed inbound sales conversion goals and milestones on flagship communications contracts.</p>
             </div>
-            <div class="bg-gradient-to-br from-emerald-50 to-emerald-100/50 border border-emerald-100 p-8 rounded-2xl card-hover shadow-sm">
-                <p class="text-5xl font-black text-emerald-950 tracking-tight">95%+</p>
-                <p class="text-base font-bold text-emerald-900 mt-2">Quality Assurance & Compliance</p>
-                <p class="text-sm text-emerald-700/80 mt-2 leading-relaxed">
-                    Maintained pristine customer records, software platform logging accuracy, and strict corporate voice compliance.
-                </p>
+            <div class="metric-card-emerald">
+                <p class="metric-num metric-num-emerald">95%+</p>
+                <p class="metric-title metric-title-emerald">Quality Assurance & Compliance</p>
+                <p class="metric-desc">Maintained pristine customer records, software platform logging accuracy, and strict corporate voice compliance.</p>
             </div>
-        </section>
+        </div>
 
         <!-- Premium Technical Stack Layout -->
-        <section>
-            <h2 class="text-xs font-bold uppercase tracking-widest text-indigo-600 mb-6 flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-indigo-600"></span> Enterprise Platform Toolset
-            </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                <div class="bg-white p-5 rounded-xl border border-slate-200/60 card-hover shadow-sm">
-                    <div class="text-xl mb-2">☁️</div>
-                    <p class="font-bold text-slate-800 text-sm">Salesforce CRM</p>
-                    <p class="text-slate-500 text-xs mt-1 leading-relaxed">Real-time dynamic promotional tracking & pipeline management logs.</p>
+        <div>
+            <div class="section-title" style="margin-bottom: 24px;">Enterprise Platform Toolset</div>
+            <div class="grid-three">
+                <div class="tool-card">
+                    <div class="tool-icon">☁️</div>
+                    <p class="tool-name">Salesforce CRM</p>
+                    <p class="tool-desc">Real-time dynamic promotional tracking & pipeline management logs.</p>
                 </div>
-                <div class="bg-white p-5 rounded-xl border border-slate-200/60 card-hover shadow-sm">
-                    <div class="text-xl mb-2">🎧</div>
-                    <p class="font-bold text-slate-800 text-sm">Zendesk Suite</p>
-                    <p class="text-slate-500 text-xs mt-1 leading-relaxed">Multi-channel management across email infrastructure and live customer chat arrays.</p>
+                <div class="tool-card">
+                    <div class="tool-icon">🎧</div>
+                    <p class="tool-name">Zendesk Suite</p>
+                    <p class="tool-desc">Multi-channel management across email infrastructure and live customer chat arrays.</p>
                 </div>
-                <div class="bg-white p-5 rounded-xl border border-slate-200/60 card-hover shadow-sm">
-                    <div class="text-xl mb-2">📊</div>
-                    <p class="font-bold text-slate-800 text-sm">Microsoft Excel</p>
-                    <p class="text-slate-500 text-xs mt-1 leading-relaxed">Strategic pipeline sorting, data scrubbing, and target territory manipulation.</p>
+                <div class="tool-card">
+                    <div class="tool-icon">📊</div>
+                    <p class="tool-name">Microsoft Excel</p>
+                    <p class="tool-desc">Strategic pipeline sorting, data scrubbing, and target territory manipulation.</p>
                 </div>
-                <div class="bg-white p-5 rounded-xl border border-slate-200/60 card-hover shadow-sm">
-                    <div class="text-xl mb-2">📞</div>
-                    <p class="font-bold text-slate-800 text-sm">Cloud Telephony</p>
-                    <p class="text-slate-500 text-xs mt-1 leading-relaxed">VoIP platform fluency, softphone interaction loops, and automated call routing.</p>
+                <div class="tool-card">
+                    <div class="tool-icon">📞</div>
+                    <p class="tool-name">Cloud Telephony</p>
+                    <p class="tool-desc">VoIP platform fluency, softphone interaction loops, and automated call routing.</p>
                 </div>
-                <div class="bg-white p-5 rounded-xl border border-slate-200/60 card-hover shadow-sm">
-                    <div class="text-xl mb-2">⚡</div>
-                    <p class="font-bold text-slate-800 text-sm">Workspace Sync</p>
-                    <p class="text-slate-500 text-xs mt-1 leading-relaxed">Asynchronous communication Mastery across Slack platforms and global Zoom networks.</p>
+                <div class="tool-card">
+                    <div class="tool-icon">⚡</div>
+                    <p class="tool-name">Workspace Sync</p>
+                    <p class="tool-desc">Asynchronous communication Mastery across Slack platforms and global Zoom networks.</p>
                 </div>
-                <div class="bg-white p-5 rounded-xl border border-slate-200/60 card-hover shadow-sm">
-                    <div class="text-xl mb-2">🏠</div>
-                    <p class="font-bold text-slate-800 text-sm">Arise Infrastructure</p>
-                    <p class="text-slate-500 text-xs mt-1 leading-relaxed">Independent execution of remote operational requirements and compliance systems.</p>
-                </div>
-            </div>
-        </section>
+                <div class="tool-card">
 
-        <!-- Remote Operational Readiness Grid -->
-        <section class="bg-slate-900 text-white rounded-2xl p-8 relative overflow-hidden shadow-xl shadow-slate-900/10">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-2xl"></div>
-            
-            <h2 class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-3">
-                Verified Technical Asset Audit
-            </h2>
-            <p class="text-slate-400 text-sm mb-6">
-                Fully operational and configured setup meeting all specified technical specifications for Credit Clerk operations:
-            </p>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm">
-                <div class="flex gap-3 items-start">
-                    <span class="text-emerald-400 font-bold bg-emerald-400/10 px-2 py-0.5 rounded text-xs">OK</span>
-                    <div>
-                        <p class="font-semibold text-slate-200">Processing Node</p>
-                        <p class="text-xs text-slate-400 mt-1">High-spec environment (8GB+ RAM Architecture)</p>
-                    </div>
