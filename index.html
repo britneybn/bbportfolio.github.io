@@ -53,6 +53,25 @@
         .tool-name { font-weight: 700; font-size: 14px; color: #0f172a; }
         .tool-desc { font-size: 12px; color: #64748b; margin-top: 4px; line-height: 1.4; }
 
+        /* Certifications Section Elements */
+        .cert-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .cert-row { border-bottom: 1px solid #f1f5f9; }
+        .cert-row:last-child { border-bottom: none; }
+        .cert-img-cell { width: 70px; padding: 16px 0; vertical-align: middle; }
+        .cert-text-cell { padding: 16px 12px; vertical-align: middle; }
+        .cert-badge-visual { width: 56px; height: 56px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold; }
+        .cert-name { font-weight: 700; font-size: 15px; color: #0f172a; }
+        .cert-issuer { font-size: 12px; font-weight: 600; color: #4F46E5; margin-top: 1px; }
+        .cert-link { display: inline-block; font-size: 12px; color: #2563eb; text-decoration: none; font-weight: 600; margin-top: 4px; }
+        .cert-link:hover { text-decoration: underline; }
+        
+        .progress-list { margin-top: 12px; padding-left: 4px; }
+        .progress-item { list-style: none; margin-bottom: 12px; position: relative; padding-left: 24px; }
+        .progress-spinner { width: 14px; height: 14px; border: 2px solid #cbd5e1; border-top-color: #4f46e5; border-radius: 50%; display: inline-block; position: absolute; left: 0; top: 4px; animation: spin 1s linear infinite; }
+        .progress-name { font-weight: 600; font-size: 14px; color: #334155; }
+        .progress-status { font-size: 11px; color: #64748b; font-weight: 500; margin-left: 6px; background: #f1f5f9; padding: 1px 6px; border-radius: 4px; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
         /* Technical Asset Infrastructure Audit Block */
         .audit-box { background: #0f172a; color: #ffffff; padding: 30px; border-radius: 16px; margin-top: 30px; }
         .audit-title { color: #818cf8; font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 14px; }
@@ -103,7 +122,7 @@
             </p>
         </div>
 
-        <!-- Metrics Columns Matrix (Native Stable Table) -->
+        <!-- Metrics Columns Matrix -->
         <div style="margin-top: 20px;">
             <table class="layout-table">
                 <tr>
@@ -121,44 +140,16 @@
             </table>
         </div>
 
-        <!-- Tools Matrix Grid (Row 1) -->
-        <div class="section-box" style="padding: 24px 20px;">
-            <div class="section-title" style="margin-bottom: 14px; margin-left: 12px;">Enterprise Platform Toolset</div>
-            <table class="tools-table">
-                <tr>
-                    <td class="tool-cell">
-                        <div class="tool-icon">☁️</div>
-                        <p class="tool-name">Salesforce CRM</p>
-                        <p class="tool-desc">Real-time dynamic promotional tracking & pipeline management logs.</p>
-                    </td>
-                    <td class="tool-cell">
-                        <div class="tool-icon">🎧</div>
-                        <p class="tool-name">Zendesk Suite</p>
-                        <p class="tool-desc">Multi-channel management across email infrastructure and customer chat arrays.</p>
-                    </td>
-                    <td class="tool-cell">
-                        <div class="tool-icon">📊</div>
-                        <p class="tool-name">Microsoft Excel</p>
-                        <p class="tool-desc">Strategic pipeline sorting, data scrubbing, and target territory manipulation.</p>
-                    </td>
-                </tr>
-            </table>
+        <!-- NEW: Comprehensive Certifications Registry Section -->
+        <div class="section-box">
+            <div class="section-title">Verified Certifications & Professional Training</div>
             
-            <!-- Tools Matrix Grid (Row 2) -->
-            <table class="tools-table" style="margin-top: 12px;">
-                <tr>
-                    <td class="tool-cell">
-                        <div class="tool-icon">📞</div>
-                        <p class="tool-name">Cloud Telephony</p>
-                        <p class="tool-desc">VoIP platform fluency, softphone interaction loops, and automated call routing.</p>
+            <table class="cert-table">
+                <!-- Cert 1: HubSpot -->
+                <tr class="cert-row">
+                    <td class="cert-img-cell">
+                        <div class="cert-badge-visual" style="color: #ea580c; background: #fff7ed; border-color: #ffedd5;">🍊</div>
                     </td>
-                    <td class="tool-cell">
-                        <div class="tool-icon">⚡</div>
-                        <p class="tool-name">Workspace Sync</p>
-                        <p class="tool-desc">Asynchronous communication mastery across Slack channels and global Zoom networks.</p>
-                    </td>
-                    <td class="tool-cell">
-                        <div class="tool-icon">🏠</div>
-                        <p class="tool-name">Arise Infrastructure</p>
+
 
 
